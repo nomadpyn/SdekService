@@ -1,9 +1,14 @@
 ﻿namespace SdekService.Models.Enums
 {
-    // enum для хранения id тарифов доставки
+
+    #region Enum TarrifType
+    /// <summary>
+    /// Хранение кодов тарифов доставки
+    /// </summary>
     public enum TarrifType
     {
         ExpressStockDoor = 482,     // Склад - дверь
         ExpressStockStock = 483     // Склад - склад       
     }
+    #endregion
 }

@@ -1,12 +1,15 @@
 ﻿namespace SdekService.Services
 {
-    // статический класс для хранения запросов к сдэк api 1.5
+    #region Class RequestURLs
+    /// <summary>
+    /// Класс для хранения URL для запросов в СДЭК Api
+    /// </summary>
     public static class RequestURLs
     {
-        // строка запроса по поиску города по ФИАС
-        public static string CityUrl { get; } = "https://integration.cdek.ru/v1/location/cities/json?fiasGuid=";
-        
-        // строка запроса по расчету стоимости доставки
+        #region Public Fields
+        public static string CityUrl { get; } = "https://integration.cdek.ru/v1/location/cities/json?fiasGuid=";                
         public static string PayUrl { get; } = "http://api.cdek.ru/calculator/calculate_tarifflist.php";
+        #endregion
     }
+    #endregion
 }

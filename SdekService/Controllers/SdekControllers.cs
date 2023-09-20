@@ -1,14 +1,30 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿#region Using
+using Microsoft.AspNetCore.Mvc;
 using SdekService.Models;
 using SdekService.Services;
+#endregion
 
 namespace SdekService.Controllers
 {
+    #region Controller SdekController
+    /// <summary>
+    /// Контроллер для запросов к СДЭК API
+    /// </summary>
     [ApiController]
     [Route ("Home")]
-    public class SdekControllers : Controller
-    {        
-        // метод получения стоимости доставки по заданным параметрам (фиас города отправителя, фиас города получателя, вес, длина, ширина и высота)
+    public class SdekController : Controller
+    {
+        #region Public Methods
+        /// <summary>
+        /// Возвращает результат запроса стоимости доставки по заданным параметрам (фиас города отправителя, фиас города получателя, вес, длина, ширина и высота) или ошибку
+        /// </summary>
+        /// <param name="senderCityGuid"></param>
+        /// <param name="receiverCityGuid"></param>
+        /// <param name="weight_gr"></param>
+        /// <param name="lenght_mm"></param>
+        /// <param name="width_mm"></param>
+        /// <param name="height_mm"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("costOfDelivery")]
         public async Task<IActionResult> costOfDelivery(Guid senderCityGuid, Guid receiverCityGuid, int weight_gr, int lenght_mm, int width_mm, int height_mm)
@@ -30,5 +46,7 @@ namespace SdekService.Controllers
 
             return Ok(result);
         }
+        #endregion
     }
+    #endregion
 }

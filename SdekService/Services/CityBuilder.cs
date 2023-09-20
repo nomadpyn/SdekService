@@ -1,11 +1,19 @@
-﻿using Newtonsoft.Json;
+﻿#region Using 
+using Newtonsoft.Json;
 using SdekService.Models;
+#endregion
 
 namespace SdekService.Services
 {
+    #region Class CityBuilder
     public static class CityBuilder
     {
-        // метод для получения информации о городе от Сдэк Api по ФИАС города, который приходит из запроса
+        /// <summary>
+        /// Вовращает город по ФИАС с помощью СДЭК API 
+        /// </summary>
+        /// <param name="fiasGuid"></param>
+        /// <returns></returns>
+        #region Public Methods
         public static async Task<City> CreateCityFromFiasGuid(Guid fiasGuid)
         {
             City city = new City();
@@ -30,5 +38,7 @@ namespace SdekService.Services
 
             return city;
         }
+        #endregion
     }
+    #endregion
 }

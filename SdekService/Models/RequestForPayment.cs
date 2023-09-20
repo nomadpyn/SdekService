@@ -1,7 +1,10 @@
 ﻿
 namespace SdekService.Models
 {
-    // класс для запроса об оплате
+    #region Class RequestForPayment
+    /// <summary>
+    /// Класс для хранения запроса стоимости доставки
+    /// </summary>
     public class RequestForPayment
     {
         public string version { get; set; } 
@@ -12,15 +15,23 @@ namespace SdekService.Models
         public Goods goods { get; set; }
         public RequestForPayment() { }
     }
-    
-    // класс для тарифов доставки
+    #endregion
+
+    #region Class TariffId
+    /// <summary>
+    /// Класс для тарифов доставки
+    /// </summary>
     public class TariffId
     {
         public int id { get; set; }
         public TariffId() { }
     }
-    
-    // класс для характеристик посылки
+    #endregion
+
+    #region Class Goods
+    /// <summary>
+    /// Класс для характеристик посылки
+    /// </summary>
     public class Goods
     {
         public float weight { get; set; }
@@ -29,4 +40,5 @@ namespace SdekService.Models
         public int height {get;set;}
         public  Goods() { }
     }
+    #endregion
 }

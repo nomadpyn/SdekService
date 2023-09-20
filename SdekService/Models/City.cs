@@ -1,5 +1,9 @@
 ﻿namespace SdekService.Models
 {
+    #region Class City
+    /// <summary>
+    /// Класс для хранения информации о городе для СДЭК Api
+    /// </summary>
     public class City
     {
         public string? cityName { get; set; }
@@ -18,6 +22,6 @@
         public float paymentLimit { get; set; }
         public string? timezone { get; set; }
         public City() { }
-
     }
+    #endregion
 }

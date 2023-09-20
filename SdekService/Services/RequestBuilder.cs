@@ -1,12 +1,25 @@
-﻿using Newtonsoft.Json;
+﻿#region Using
+using Newtonsoft.Json;
 using SdekService.Models;
 using SdekService.Models.Enums;
+#endregion
 
 namespace SdekService.Services
 {
-    public class RequestBuilder
+    #region Class RequestBuilder
+    public static class RequestBuilder
     {
-        // Метод запроса расчета стоимости доставки к Сдэк Api
+        #region Public Methods
+        /// <summary>
+        /// Возвращает результат запроса о стоимости доставки по заданными параметрам
+        /// </summary>
+        /// <param name="senderCity"></param>
+        /// <param name="receiverCity"></param>
+        /// <param name="weight_gr"></param>
+        /// <param name="lenght_mm"></param>
+        /// <param name="width_mm"></param>
+        /// <param name="height_mm"></param>
+        /// <returns></returns>
         public static async Task<Result> GetRequestForPayment(City senderCity, City receiverCity, int weight_gr, int lenght_mm, int width_mm, int height_mm)
         {
             Result? result = null;
@@ -33,7 +46,16 @@ namespace SdekService.Services
             return result == null ? new Result() : result;            
         }
 
-        // Метод сборки json файла для запроса
+        /// <summary>
+        /// Возвращает сформированный запрос к СДЭК API по заданным параметрам
+        /// </summary>
+        /// <param name="senderCityId"></param>
+        /// <param name="receiverCityId"></param>
+        /// <param name="weight_gr"></param>
+        /// <param name="lenght_mm"></param>
+        /// <param name="width_mm"></param>
+        /// <param name="height_mm"></param>
+        /// <returns></returns>
         private static RequestForPayment CreateRequestForPayment(int senderCityId, int receiverCityId, int weight_gr, int lenght_mm, int width_mm, int height_mm)
         {
             return new RequestForPayment()
@@ -55,5 +77,7 @@ namespace SdekService.Services
                 }
             };
         }
+        #endregion
     }
+    #endregion
 }

@@ -25,7 +25,7 @@ namespace SdekService.Services
         /// <returns></returns>
         public static int MakeParamFromMmToCm(int param)
         {
-            double paramInCm = Convert.ToDouble(param)/1000;
+            double paramInCm = Convert.ToDouble(param)/10;
 
             return (int)Math.Ceiling(paramInCm);
         }
